@@ -36,6 +36,7 @@
                             <td style="width=10px">
                                 <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> VISUALIZAR</a>
                                 <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info"><i class="fas fa-edit"></i> EDITAR</a>
+                                <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-success"><i class="fas fa-address-book"></i> EDITAR</a>
                             </td>
                         </tr>
 

@@ -34,9 +34,10 @@
                                 {{ $profile ->name}}
                             </td>
                             <td style="width=10px">
-                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> VISUALIZAR</a>
-                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info"><i class="fas fa-edit"></i> EDITAR</a>
-                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-success"><i class="fas fa-lock"></i></a>
+                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">VER</a>
+                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-warning"><i class="fas fa-lock"></i></a>
+                                <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-info"><i class="fas fa-list-alt"></i></a>
                             </td>
                         </tr>
 
