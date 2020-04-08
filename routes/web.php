@@ -6,6 +6,27 @@ Route::prefix('admin')
         ->group(function(){
 
     /**
+     * Routes Products
+     */
+
+     Route::any('products/search', 'ProductController@search')->name('products.search');
+     Route::resource('products', 'ProductController'); 
+
+    /**
+     * Routes Categories
+     */
+
+    Route::any('categories/search', 'CategoryController@search')->name('categories.search');
+    Route::resource('categories', 'CategoryController'); 
+
+    /**
+     * Routes Users
+     */
+
+    Route::any('users/search', 'UserController@search')->name('users.search');
+    Route::resource('users', 'UserController');            
+
+    /**
      * Plan x Profile
      */
     Route::get('plans/{id}/profile/{idProfile}/detach', 'ACL\PlanProfileController@detachProfilePlan')->name('plans.profile.detach');
@@ -63,7 +84,7 @@ Route::prefix('admin')
     /**
      * Home Dashboard
      */
-    Route::get('/', 'PlanController@store')->name('admin.index');
+    Route::get('/', 'PlanController@index')->name('admin.index');
 });
 
     /**

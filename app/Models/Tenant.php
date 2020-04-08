@@ -7,18 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tenant extends Model
 {
     protected $fillable = [
-        'cnpj', 
-        'name', 
-        'url', 
-        'email', 
-        'logo', 
-        'active',
-        'subscription',
-        'expires_at',
-        'subscription_id',
-        'subscription_active',
-        'subscription_suspended',
+        'cnpj', 'name', 'url', 'email', 'logo', 'active',
+        'subscription', 'expires_at', 'subscription_id', 'subscription_active', 'subscription_suspended',
     ];
+
 
     public function users()
     {
@@ -27,6 +19,6 @@ class Tenant extends Model
 
     public function plan()
     {
-        return $this->belongsTo(Tenant::class);
+        return $this->belongsTo(Plan::class);
     }
 }
