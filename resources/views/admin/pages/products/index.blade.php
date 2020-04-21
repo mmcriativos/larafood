@@ -23,17 +23,20 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Imagem</th>
+                        <th width="150">Imagem</th>
                         <th>Título</th>
-                        <th width="150">Ações</th>
+                        <th width="250">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product ->image}}</td>
+                            <td>
+                                <img src="{{ url("storage/{$product->image}") }}" alt="{{ $product ->title}}" style="max-width:150px">
+                            </td>
                             <td>{{ $product ->title}}</td>
                             <td style="width=10px">
+                                <a href="{{ route('products.categories', $product->id) }}" class="btn btn-warning" title="Categorias"><i class="fas fa-layer-group"></i></a>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning">VER</a>
                             </td>

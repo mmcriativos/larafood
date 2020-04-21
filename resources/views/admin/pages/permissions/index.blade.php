@@ -24,6 +24,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Descrição</th>
                         <th width="250">Ações</th>
                     </tr>
                 </thead>
@@ -32,6 +33,9 @@
                         <tr>
                             <td>
                                 {{ $permission ->name}}
+                            </td>
+                            <td>
+                                {{ $permission ->description}}
                             </td>
                             <td style="width=10px">
                                 <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> VISUALIZAR</a>

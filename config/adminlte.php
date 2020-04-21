@@ -16,7 +16,7 @@ return [
 
     'title' => 'LaraFood',
     'title_prefix' => '',
-    'title_postfix' => 'MM Criativos',
+    'title_postfix' => ' - MM Criativos',
 
     /*
     |--------------------------------------------------------------------------
@@ -213,43 +213,61 @@ return [
             'search' => true,
             'topnav' => true,
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+
         ['header' => 'account_settings'],
+        [
+            'text' => 'Empresas',
+            'url'  => 'admin/tenants',
+            'icon' => 'fas fa-fw fa-building',
+            'can'  => 'tenants',
+        ],
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
             'icon' => 'fas fa-fw fa-list-alt',
+            'can'  => 'plans',
         ],
         [
             'text' => 'Perfis',
             'url'  => 'admin/profiles',
+            'icon' => 'fas fa-fw fa-address-book',
+            'can'  => 'profiles',
+        ],
+        [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
             'icon' => 'fas fa-fw fa-address-card',
+            'can'  => 'roles',
         ],
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-fw fa-lock',
+            'can'  => 'permissions',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'admin/users',
             'icon' => 'fas fa-fw fa-users',
+            'can'  => 'users',
         ],
         [
             'text' => 'Categorias',
             'url'  => 'admin/categories',
             'icon' => 'fas fa-fw fa-layer-group',
+            'can'  => 'categories',
         ],
         [
             'text' => 'Produtos',
             'url'  => 'admin/products',
-            'icon' => 'fas fa-fw fa-layer-group',
+            'icon' => 'fas fa-fw fa-hamburger',
+            'can'  => 'products',
+        ],
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/tables',
+            'icon' => 'fas fa-fw fa-tablet',
+            'can'  => 'tables',
         ],
     ],
 

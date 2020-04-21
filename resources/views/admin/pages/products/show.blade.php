@@ -11,7 +11,7 @@
         <div class="card-body">
             <ul>
                 <li>
-                    {{ $product->image }}
+                    <img src="{{ url("storage/{$product->image}") }}" alt="{{ $product ->title}}" style="max-width:150px">
                 </li>
                 <li>
                     <strong>Título: </strong> {{ $product->title }}
@@ -22,6 +22,9 @@
                 <li>
                     <strong>Descrição: </strong> {{ $product->description }}
                 </li>
+                <li>
+                    <strong>Preço: </strong> {{ $product->price }}
+                </li>
             </ul>
 
             @include('admin.includes.alerts')
@@ -29,7 +32,7 @@
             <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O PRODUTO {{ $product->name }}</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O PRODUTO {{ $product->title }}</button>
             </form>
         </div>
     </div>

@@ -1,26 +1,30 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Planos')
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}">Planos</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><b>Dashboard</b></a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}"><b>Planos</b></a></li>
     </ol>
-    <h1>Planos <a href="{{ route('plans.create') }}" class="btn btn-dark">ADD <i class="fas fa-plus-square"></i></a></h1>
+    <hr>
+    <h1><b>Planos</b></h1>
 @stop
 
 @section('content')
-    <div class="card">
+    <div class="card card-primary card-outline">
         <div class="card-header">
-            <form action="{{ route('plans.search') }}" method="POST" class="form form-inline">
+            <h3 class="card-title">
+                <a href="{{ route('plans.create') }}" class="btn btn-dark" style="margin-left: 15px">ADICIONAR PLANO <i class="fas fa-plus-square"></i></a>
+              </h3>
+            <form action="{{ route('plans.search') }}" method="POST" class="form form-inline float-right">
             @csrf
             <input type="text" name="filter" placeholder="Nome" class="form-control" value="{{ $filters['filter'] ?? '' }}">
             <button type="submit" class="btn btn-dark">Filtrar</button>
             </form>
         </div>
-        <div class="card-body">
-            <table class="table table-condensed">
+        <div class="card-body">  
+            <table class="table table-striped projects">
                 <thead>
                     <tr>
                         <th>Nome</th>

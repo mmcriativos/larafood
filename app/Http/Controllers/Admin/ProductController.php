@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreUpdateProduct;
 
 class ProductController extends Controller
 {
@@ -14,6 +15,8 @@ class ProductController extends Controller
     public function __construct(Product $product)
     {
         $this->repository = $product;
+
+        $this->middleware(['can:products']);
     }
 
     /**
@@ -58,6 +61,7 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -110,10 +114,15 @@ class ProductController extends Controller
         $tenant = auth()->user()->tenant;
 
         if($request->hasFile('image') && $request->image->isValid()){
+
+            if (Storage::exists($product->image)) {
+                Storage::delete($product->image);
+            }
+
             $data['image'] = $request->image->store("tenants/{$tenant->uuid}/products");
         }
 
-        $product->update();
+        $product->update($data);
 
         return redirect()->route('products.index');
     }
@@ -129,6 +138,10 @@ class ProductController extends Controller
         if (!$product = $this->repository->find($id))
         {
             return redirect()->back();
+        }
+
+        if (Storage::exists($product->image)) {
+            Storage::delete($product->image);
         }
 
         $product->delete();
